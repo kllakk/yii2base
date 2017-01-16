@@ -10,9 +10,12 @@ return [
     'basePath' => dirname(__DIR__),    
     'language' => 'en-US',
     'components' => [
-        'db' => $dbParams,
+        //'db' => $dbParams,
         'mailer' => [
             'useFileTransport' => true,
+        ],
+        'assetManager'=>[
+            'basePath'=> __DIR__ . '/../tests/assets'
         ],
         'urlManager' => [
             'showScriptName' => true,
