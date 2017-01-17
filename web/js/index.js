@@ -1,3 +1,3 @@
 require('./vendor');
-require('./site');
-require('css/site.css');
+require('js/site');
+require('css/site.scss');

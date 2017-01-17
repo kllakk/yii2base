@@ -19,8 +19,11 @@ const config =  {
     module: {
         loaders: [
             {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract(
+                    'style', // backup loader when not building .css file
+                    'css!sass' // loaders to preprocess CSS
+                ),
             },
             {
                 test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/,
@@ -36,6 +39,7 @@ const config =  {
     resolve: {
         alias: {
             css: __dirname + '/web/css',
+            js: __dirname + '/web/js',
         },
         modulesDirectories: [
             'node_modules',
