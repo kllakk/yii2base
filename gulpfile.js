@@ -2,7 +2,6 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('hello', function() {
     console.log('hello gulp');
@@ -15,11 +14,17 @@ gulp.task('sass', function () {
 });
 
 gulp.task('autoprefixer', function () {
+    var postcss      = require('gulp-postcss');
+    var sourcemaps   = require('gulp-sourcemaps');
+    var autoprefixer = require('autoprefixer');
+
     return gulp.src('./web/css/*.css')
-        .pipe(autoprefixer({
+        .pipe(sourcemaps.init())
+        .pipe(postcss([ autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
-        }))
+        }) ]))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./web/css/'));
 });
 
