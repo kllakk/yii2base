@@ -1,0 +1,30 @@
+{
+  "name": "yii2base",
+  "version": "1.0.0",
+  "description": "УСТАНОВКА В ТЕКУЩУЮ ДИРЕКТОРИЮ\r ------------",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kllakk/yii2base.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kllakk/yii2base/issues"
+  },
+  "homepage": "https://github.com/kllakk/yii2base#readme",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-postcss": "^6.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.0"
+  }
+}
