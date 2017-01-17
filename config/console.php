@@ -8,6 +8,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
+    'timeZone' => 'Europe/Moscow',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -20,6 +21,7 @@ $config = [
                 ],
             ],
         ],
+        'schedule' => 'omnilight\scheduling\Schedule',
         'db' => $db,
     ],
     'params' => $params,
