@@ -1,5 +1,3 @@
-const webpack = require('webpack');
-
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BowerWebpackPlugin = require('bower-webpack-plugin');
@@ -63,16 +61,5 @@ const config =  {
         new ManifestPlugin(),
     ],
 };
-
-
-config.plugins.push(
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-        compressor: {
-            warnings: false,
-        },
-    })
-);
 
 module.exports = config;
