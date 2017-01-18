@@ -33,6 +33,14 @@
     "scripts": {
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject"
+        ],
+        "install-app": [
+            "php yii migrate/up",
+            "npm install",
+            "npm run build"
+        ],
+        "tests": [
+            "\"vendor/bin/codecept\" run"
         ]
     },
     "extra": {

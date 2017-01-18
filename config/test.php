@@ -11,6 +11,7 @@ return [
     'language' => 'en-US',
     'components' => [
         //'db' => $dbParams,
+        'db' => require(__DIR__ . '/db.php'), // пока так
         'mailer' => [
             'useFileTransport' => true,
         ],
