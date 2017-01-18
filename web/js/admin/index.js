@@ -5,5 +5,5 @@ if (process.env.NODE_ENV === 'production')  {
 }
 
 require('./vendor');
-require('js/site');
-require('css/site.scss');
+require('js/admin.js');
+require('css/admin.scss');

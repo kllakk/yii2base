@@ -6,7 +6,8 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const config =  {
 
     entry: {
-        site: './web/js/app',
+        site: './web/js/site/',
+        admin: './web/js/admin/',
     },
 
     output: {
@@ -29,11 +30,11 @@ const config =  {
             },
             {
                 test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/,
-                loader: 'file?name=/fonts/[name].[ext]',
+                loader: 'file?name=[name].[ext]',
             },
             {
                 test   : /\.(jpg|png|gif)$/,
-                loader : 'url?name=/fonts/[name]_[hash].[ext]'
+                loader : 'url?name=[name]_[hash].[ext]'
             }
         ],
 
