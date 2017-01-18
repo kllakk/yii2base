@@ -6,7 +6,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const config =  {
 
     entry: {
-        site: './web/js/',
+        site: './web/js/app',
     },
 
     output: {
