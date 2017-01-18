@@ -15,7 +15,8 @@
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "omnilight/yii2-scheduling": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -32,6 +33,14 @@
     "scripts": {
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject"
+        ],
+        "install-app": [
+            "php yii migrate/up",
+            "npm install",
+            "npm run build"
+        ],
+        "tests": [
+            "\"vendor/bin/codecept\" run"
         ]
     },
     "extra": {

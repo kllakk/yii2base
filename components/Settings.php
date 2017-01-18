@@ -20,10 +20,13 @@ class Settings implements BootstrapInterface
      */
 
     public function bootstrap($app) {
-        $settings = \app\models\Settings::find()->all();
+        $tableSettings = Yii::$app->db->schema->getTableSchema('settings');
+        if ($tableSettings) {
+            $settings = \app\models\Settings::find()->all();
 
-        foreach ($settings as $param) {
-            Yii::$app->params[$param->key] = $param->value;
+            foreach ($settings as $param) {
+                Yii::$app->params[$param->key] = $param->value;
+            }
         }
     }
 }

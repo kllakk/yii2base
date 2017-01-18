@@ -9,8 +9,10 @@ return [
     'id' => 'basic-tests',
     'basePath' => dirname(__DIR__),    
     'language' => 'en-US',
+    'bootstrap' => [ 'app\components\Settings' ],
     'components' => [
         //'db' => $dbParams,
+        'db' => require(__DIR__ . '/db.php'), // пока так
         'mailer' => [
             'useFileTransport' => true,
         ],

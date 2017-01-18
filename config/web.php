@@ -10,6 +10,22 @@ $config = [
         'app\components\Settings'
     ],
     'components' => [
+        'assetManager' => [
+            //'linkAssets' => true,
+            'bundles' => [
+                'yii\web\YiiAsset' => false,
+                'yii\web\JqueryAsset' => false,
+                'yii\widgets\PjaxAsset' => false,
+                'yii\widgets\ActiveFormAsset' => false,
+                'yii\grid\GridViewAsset' => false,
+                'yii\captcha\CaptchaAsset' => false,
+                'yii\validators\ValidationAsset' => false,
+                'yii\bootstrap\BootstrapAsset' => false,
+                'yii\bootstrap\BootstrapThemeAsset' => false,
+                'yii\bootstrap\BootstrapPluginAsset' => false,
+                'yii\jui\JuiAsset' => false
+            ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
