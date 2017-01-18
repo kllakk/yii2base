@@ -18,6 +18,7 @@ $config = [
                 'yii\widgets\PjaxAsset' => false,
                 'yii\widgets\ActiveFormAsset' => false,
                 'yii\grid\GridViewAsset' => false,
+                'yii\captcha\CaptchaAsset' => false,
                 'yii\validators\ValidationAsset' => false,
                 'yii\bootstrap\BootstrapAsset' => false,
                 'yii\bootstrap\BootstrapThemeAsset' => false,
