@@ -17,20 +17,24 @@ const config =  {
     module: {
         loaders: [
             {
-                test: /\.scss$/,
+                test: /\.(scss|sass)$/,
                 loader: ExtractTextPlugin.extract(
                     'style', // backup loader when not building .css file
-                    'css!sass' // loaders to preprocess CSS
+                    'css!postcss!sass' // loaders to preprocess CSS
                 ),
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+                loader: ExtractTextPlugin.extract('style', 'css', 'postcss'),
             },
             {
                 test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/,
-                loader: 'file-loader?name=[name].[ext]',
+                loader: 'file?name=/fonts/[name].[ext]',
             },
+            {
+                test   : /\.(jpg|png|gif)$/,
+                loader : 'url?name=/fonts/[name]_[hash].[ext]'
+            }
         ],
 
         noParse: [
