@@ -1,6 +1,7 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
+$modules = require(__DIR__ . '/modules.php');
 
 $config = [
     'id' => 'basic',
@@ -9,6 +10,7 @@ $config = [
         'log',
         'app\components\Settings'
     ],
+    'layout' => '@app/views/layouts/main',
     'components' => [
         'assetManager' => [
             //'linkAssets' => true,
@@ -57,16 +59,17 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+//                '<module:admin>/<action:\w+>' => '<module>/default/<action>',
+//                '<module:admin>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
             ],
         ],
-        */
     ],
     'params' => $params,
+    'modules' => $modules,
 ];
 
 if (YII_ENV_DEV) {
