@@ -32,11 +32,11 @@ use yii\helpers\ArrayHelper;
     }
 
     if (Yii::$app->user->isGuest) {
-        $arrItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $arrItems[] = ['label' => 'Login', 'url' => ['/admin/default/login']];
     }
     else  {
         $arrItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
+            . Html::beginForm(['/admin/default/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
