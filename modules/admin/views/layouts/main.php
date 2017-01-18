@@ -19,7 +19,7 @@ use yii\helpers\ArrayHelper;
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <?= Html::cssFile('/assets/' . ArrayHelper::getValue(Yii::$app->params['assets'], 'site.css')) ?>
+    <?= Html::cssFile('/assets/' . ArrayHelper::getValue(Yii::$app->params['assets'], 'admin.css')) ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -36,9 +36,7 @@ use yii\helpers\ArrayHelper;
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Settings', 'url' => ['/admin/settings']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -71,7 +69,7 @@ use yii\helpers\ArrayHelper;
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
-<?= Html::jsFile('/assets/' . ArrayHelper::getValue(Yii::$app->params['assets'], 'site.js')) ?>
+<?= Html::jsFile('/assets/' . ArrayHelper::getValue(Yii::$app->params['assets'], 'admin.js')) ?>
 <?php $this->endBody() ?>
 </body>
 </html>
