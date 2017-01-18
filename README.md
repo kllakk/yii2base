@@ -3,4 +3,4 @@
 
 composer create-project kllakk/yii2base ./
 
-php yii migrate/up
+composer install-app
