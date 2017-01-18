@@ -5,30 +5,14 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\models\Settings;
 use app\models\SettingsSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * SettingsController implements the CRUD actions for Settings model.
  */
-class SettingsController extends Controller
+class SettingsController extends \app\modules\admin\controllers\base\BaseAdminController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all Settings models.
      * @return mixed

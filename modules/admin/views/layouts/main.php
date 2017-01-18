@@ -26,6 +26,25 @@ use yii\helpers\ArrayHelper;
 
 <div class="wrap">
     <?php
+
+    if(!Yii::$app->user->isGuest)  {
+        $arrItems[] = ['label' => 'Settings', 'url' => ['/admin/settings']];
+    }
+
+    if (Yii::$app->user->isGuest) {
+        $arrItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    }
+    else  {
+        $arrItems[] = '<li>'
+            . Html::beginForm(['/site/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>';
+    }
+
     NavBar::begin([
         'brandLabel' => "Админ панель " . \Yii::$app->params['siteBrand'],
         'brandUrl' => Yii::$app->homeUrl,
@@ -35,21 +54,7 @@ use yii\helpers\ArrayHelper;
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Settings', 'url' => ['/admin/settings']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
+        'items' => $arrItems,
     ]);
     NavBar::end();
     ?>
