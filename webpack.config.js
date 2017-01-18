@@ -26,6 +26,10 @@ const config =  {
                 ),
             },
             {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+            },
+            {
                 test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/,
                 loader: 'file-loader?name=[name].[ext]',
             },
@@ -43,6 +47,7 @@ const config =  {
         },
         modulesDirectories: [
             'node_modules',
+            'vendor/bower',
             __dirname + '/vendor/yiisoft/yii2/assets',
         ],
     },
