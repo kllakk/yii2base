@@ -7,9 +7,8 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use yii\helpers\ArrayHelper;
 
-AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,6 +19,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <?= Html::cssFile('/assets/' . ArrayHelper::getValue(Yii::$app->params['assets'], 'site.css')) ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -71,7 +71,7 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
-
+<?= Html::jsFile('/assets/' . ArrayHelper::getValue(Yii::$app->params['assets'], 'site.js')) ?>
 <?php $this->endBody() ?>
 </body>
 </html>
