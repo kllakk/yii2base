@@ -10,4 +10,4 @@ require('yii');
 require('yii.validation');
 require('yii.activeForm');
 require('yii.gridView');
-require('yii2-ajaxform-plugin');
+require('yii.captcha');

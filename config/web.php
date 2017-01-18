@@ -11,7 +11,7 @@ $config = [
     ],
     'components' => [
         'assetManager' => [
-            'linkAssets' => true,
+            //'linkAssets' => true,
             'bundles' => [
                 'yii\web\YiiAsset' => false,
                 'yii\web\JqueryAsset' => false,
