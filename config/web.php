@@ -64,6 +64,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['api/v1/settings']],
 //                '<module:admin>/<action:\w+>' => '<module>/default/<action>',
 //                '<module:admin>/<action:\w+>/<id:\d+>' => '<module>/default/<action>',
             ],
