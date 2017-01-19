@@ -6,6 +6,11 @@ php:
   - hhvm
   - nightly
 
+branches:
+  only:
+  - master
+  - develop
+
 services:
   - mysql
 
