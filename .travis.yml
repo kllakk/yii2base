@@ -1,9 +1,27 @@
 language: php
 php:
-  - '5.4'
-  - '5.5'
   - '5.6'
   - '7.0'
   - '7.1'
   - hhvm
   - nightly
+
+services:
+  - mysql
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: dbname
+  username: dbuser
+  password: dbpassword
+
+before_install:
+  - mysql -e "CREATE DATABASE IF NOT EXISTS dbname;"
+  - mysql -u root -e "CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'dbpassword';"
+  - mysql -u root -e "GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost';"
+  - composer install
+  - cp .env.example .env
+  - php yii migrate --interactive=0
+  - npm install
+  # npm run build
