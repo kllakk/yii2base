@@ -26,7 +26,7 @@ const config =  {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style', 'css', 'postcss'),
+                loader: ExtractTextPlugin.extract('style', 'css!postcss'),
             },
             {
                 test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/,
