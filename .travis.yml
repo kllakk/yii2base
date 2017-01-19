@@ -20,8 +20,26 @@ before_install:
   - mysql -e "CREATE DATABASE IF NOT EXISTS dbname;"
   - mysql -u root -e "CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'dbpassword';"
   - mysql -u root -e "GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost';"
+  - composer global require "fxp/composer-asset-plugin:^1.2.0"
   - composer install
   - cp .env.example .env
   - php yii migrate --interactive=0
   - npm install
   # npm run build
+
+  # Start up a web server.
+  # php -S 127.0.0.1:80 -t ./web >/dev/null 2>&1 &
+  # Start up the webdriver.
+  # phantomjs --webdriver=4444 >/dev/null 2>&1 &
+
+script:
+  - vendor/bin/codecept build
+  - vendor/bin/codecept run
+  # cache vendor dirs
+
+cache:
+  directories:
+    - vendor
+    - node_modules
+    - $HOME/.composer/cache
+    - $HOME/.npm
